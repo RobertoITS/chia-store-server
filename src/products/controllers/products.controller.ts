@@ -1,6 +1,6 @@
 import { Controller } from '@nestjs/common';
 import { Body, Delete, Get, Param, Post, Put } from '@nestjs/common/decorators';
-import { Products } from '../entity/products.entity';
+import { Products } from '../../entities/products.entity';
 import { ProductsService } from '../services/products.service';
 
 @Controller('products')
@@ -14,7 +14,7 @@ export class ProductsController {
   get(@Param() params) {
     return this.service.getProduct(params.id);
   }
-  @Post()
+  @Post('new')
   create(@Body() product: Products) {
     return this.service.createProduct(product);
   }
